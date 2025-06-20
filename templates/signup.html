@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - MemoryAid</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/pixel.css') }}"
+    />
+  </head>
+  <body>
+    <a href="javascript:history.back()">
+      <img
+        class="back-button"
+        src="/static/images/back-button.png"
+        alt="back-button"
+      />
+    </a>
+    <div class="signup-container">
+      <h2>Sign Up</h2>
+      <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" required /><br />
+        <label>Email:</label>
+        <input type="email" name="email" required /><br />
+        <label>Password:</label>
+        <input type="password" name="password" required /><br />
+        <div
+          id="form-loader"
+          style="display: none; text-align: center; margin-bottom: 1em"
+        >
+          <span class="pixel-loader"></span>
+          <span style="font-family: inherit">Processing...</span>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>
+        Already have an account?
+        <a href="{{ url_for('auth.login') }}">Login here</a>
+      </p>
+
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flash-messages">
+        {% for message in messages %} {% if "fail" in message or "error" in
+        message or "invalid" in message|lower %}
+        <li class="flash-error">{{ message }}</li>
+        {% else %}
+        <li class="flash-success">{{ message }}</li>
+        {% endif %} {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+      <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const loader = document.getElementById("form-loader");
+        if (form && loader) {
+          form.addEventListener("submit", function () {
+            loader.style.display = "block";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
