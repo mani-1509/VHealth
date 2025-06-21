@@ -66,9 +66,11 @@
 
 /* Features Section */
 .features-section {
+  position: relative;
   padding: 50px 20px;
   background-color: #1a103f;
   text-align: center;
+  z-index: 9999;
 }
 
 .features-section h2 {
