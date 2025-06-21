@@ -1,0 +1,87 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/health-metrics.css') }}"
+  />
+</head>
+
+{% extends "base.html" %} {% block content %}
+<h1 class="head">Health Metrics</h1>
+<div class="health-metrics-container">
+  <!-- Health Metrics Form -->
+  <div class="metrics-form-container">
+    <h2>Add New Health Metrics</h2>
+    <!-- Add this inside .metrics-form-container, above the form -->
+    <div id="loading" class="loading hidden">Submitting...</div>
+    <form id="health-metric-form" class="metrics-form">
+      <div class="form-group">
+        <label for="heart-rate">Heart Rate (BPM):</label>
+        <input
+          type="number"
+          id="heart-rate"
+          name="heart_rate"
+          placeholder="Enter your heart rate in BPM"
+          required
+          min="40"
+          max="220"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="blood-pressure-systolic">Blood Pressure (Systolic):</label>
+        <input
+          type="number"
+          id="blood-pressure-systolic"
+          name="blood_pressure_systolic"
+          placeholder="Enter your systolic blood pressure in mmHg"
+          required
+          min="70"
+          max="200"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="blood-pressure-diastolic"
+          >Blood Pressure (Diastolic):</label
+        >
+        <input
+          type="number"
+          id="blood-pressure-diastolic"
+          name="blood_pressure_diastolic"
+          placeholder="Enter your diastolic blood pressure in mmHg"
+          required
+          min="40"
+          max="130"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="calorie-count">Calorie Count:</label>
+        <input
+          type="number"
+          id="calorie-count"
+          name="calorie_count"
+          placeholder="Enter your calorie count in Kcal"
+          required
+          min="0"
+          max="10000"
+        />
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Metrics</button>
+    </form>
+  </div>
+
+  <!-- Health Tips Section -->
+  <div class="health-tips-container">
+    <h2>Your Health Tips</h2>
+    <div id="tips-loading" class="loading hidden">Loading tips...</div>
+    <div id="health-tips" class="tips-content">
+      <p>Submit your metrics to receive personalized health tips.</p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/health-metrics.js') }}"></script>
+
+  {% endblock %}
+</div>

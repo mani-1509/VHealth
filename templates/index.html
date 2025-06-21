@@ -1,13 +1,38 @@
-{% extends "base.html" %} {% block content %} {% if user %}
-<div class="welcome-msg">Welcome back, <b>{{ username or user }}</b>!</div>
-<a href="{{ url_for('analyse') }}">Analyse</a>
-<br />
-<a href="{{ url_for('analyse_chat') }}">Analyse Chat</a>
-<br />
-<a href="{{ url_for('auth.logout') }}" class="pixel-btn logout-btn"> Logout </a>
-{% else %}
-<div class="auth-buttons">
-  <a href="{{ url_for('auth.login') }}" class="pixel-btn">Login</a>
-  <a href="{{ url_for('auth.signup') }}" class="pixel-btn">Sign Up</a>
+<head>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/index.css') }}"
+  />
+</head>
+
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="auth-section">
+    <h1 class="main-title">VHealth: Your Personal AI Health Companion</h1>
+    <p class="subtitle">
+      Monitor and improve your health with real-time insights and
+      recommendations powered by advanced AI and computer vision technology.
+    </p>
+    <div class="feature-list">
+      <div class="feature-item">
+        <h3>Live Image Recognition</h3>
+        <p>
+          Use your camera to analyze meals and exercise routines for real-time
+          feedback and insights.
+        </p>
+      </div>
+      <div class="feature-item">
+        <h3>Health Metric Tracking</h3>
+        <p>
+          Input metrics like heart rate and calorie count for personalized
+          health tips and improvements.
+        </p>
+      </div>
+      <div class="feature-item">
+        <h3>Progress Monitoring</h3>
+        <p>Track your progress with visual reports, graphs, and trends.</p>
+      </div>
+    </div>
+  </div>
 </div>
-{% endif %} {% endblock %}
+{% endblock %}

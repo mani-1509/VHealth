@@ -2,6 +2,7 @@ from flask import Flask, render_template, session, request, jsonify, redirect, u
 import os
 from datetime import datetime
 from routes.auth import auth_bp
+from routes.health_metric import health_metric
 from supabase import create_client
 from openai import OpenAI
 import re
@@ -16,6 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 # auth
 
 app.register_blueprint(auth_bp)
+app.register_blueprint(health_metric)
 
 # Supabase client setup
 
@@ -148,3 +150,14 @@ def chat_api():
     reply = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
 
     return jsonify({'reply': reply, 'thinking': think})
+
+@app.route('/health-metrics')
+def health_metrics():
+    user = session.get('user')
+    username = session.get('username')
+    if not user:
+        return redirect(url_for('auth.login'))
+    return render_template('health_metrics.html', user=user, username=username)
+
+if __name__ == '__main__':
+    app.run(debug=True)
