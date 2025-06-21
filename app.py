@@ -148,6 +148,3 @@ def chat_api():
     reply = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
 
     return jsonify({'reply': reply, 'thinking': think})
-
-if __name__ == '__main__':
-    app.run(debug=True)
