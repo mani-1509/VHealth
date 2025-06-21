@@ -23,9 +23,11 @@
 
 /* Hero Section */
 .hero-section {
+  position: relative;
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(135deg, #32178a, #1a103f);
+  background: transparent;
+  z-index: 9999;
 }
 
 .hero-content h1 {
