@@ -40,7 +40,6 @@ def analyse():
     user = session.get('user')
     username = session.get('username')
     if not user:
-        flash('You need to log in first.')
         return redirect(url_for('auth.login'))
     return render_template('analyse.html', user=user, username=username)
 
