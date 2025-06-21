@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   const chatLoader = document.getElementById("chat-loader");
 
   // Show the analysis as a system message (UI only)
-  chatMessages.innerHTML = `<div class="system-msg">${analysis}</div>`;
+  chatMessages.innerHTML = `<div class="system-msg">${marked.parse(
+    analysis
+  )}</div>`;
 
   // Clean conversation history
   let history = [];

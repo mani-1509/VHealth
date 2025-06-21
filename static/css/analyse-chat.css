@@ -72,6 +72,7 @@ h1 {
   color: #f3e8ff;
   align-self: flex-start;
   text-align: left;
+  border: 2px solid #a78bfa;
 }
 
 .animate-in {
