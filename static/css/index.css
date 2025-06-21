@@ -17,6 +17,10 @@
   }
 }
 
+.bg {
+  z-index: 100;
+}
+
 /* Hero Section */
 .hero-section {
   text-align: center;
