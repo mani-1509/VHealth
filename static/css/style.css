@@ -1,0 +1,137 @@
+:root {
+  --bg-100: #f0f4f8;
+  --bg-200: #ffffff;
+  --bg-300: #e0e4e8;
+  --text-100: #333333;
+  --text-200: #666666;
+  --primary-100: #007bff;
+  --primary-200: #0056b3;
+  --primary-300: #003d80;
+  --accent-100: #ffc107;
+  --accent-200: #ff9800;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-100);
+  color: var(--text-100);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--text-200);
+}
+
+.form-container {
+  background: var(--bg-200);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: var(--primary-300);
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: var(--text-100);
+}
+
+form input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: var(--bg-300);
+  border: 1px solid var(--accent-100);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-100);
+}
+
+form input::placeholder {
+  color: var(--text-200);
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px;
+  background-color: var(--primary-100);
+  color: var(--text-100);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-200);
+}
+
+.login-redirect {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-200);
+}
+
+.login-redirect a {
+  color: var(--accent-100);
+  text-decoration: none;
+}
+
+.flash-messages {
+  margin-top: 16px;
+  list-style: none;
+  padding: 0;
+}
+
+.flash-success {
+  background: var(--primary-300);
+  color: var(--accent-200);
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.flash-error {
+  background: #ffcccc;
+  color: #660000;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--bg-300);
+  border-top-color: var(--primary-200);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 8px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

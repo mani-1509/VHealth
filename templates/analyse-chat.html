@@ -1,0 +1,55 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/analyse-chat.css') }}"
+  />
+</head>
+{% extends "base.html" %} {% block content %}
+<a href="javascript:history.back()">
+  <img
+    class="back-button"
+    src="{{ url_for('static', filename='images/back-button.png') }}"
+    alt="back-button"
+  />
+</a>
+
+<div class="chat-container">
+  <h1>Chat</h1>
+  <div id="chat-messages" style="min-height: 200px; margin-bottom: 1em"></div>
+  <div
+    id="chat-loader"
+    style="
+      display: none;
+      justify-content: center;
+      align-items: center;
+      margin: 1em 0;
+    "
+  >
+    <span class="pixel-loader"></span>
+    <span style="font-family: inherit; color: #ffe066; margin-left: 1em"
+      >Thinking...</span
+    >
+  </div>
+  <form id="chat-form">
+    <input
+      type="text"
+      id="chat-input"
+      placeholder="Type your message..."
+      autocomplete="off"
+      required
+      style="width: 100%"
+    />
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/analyse-chat.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+{% endblock %}

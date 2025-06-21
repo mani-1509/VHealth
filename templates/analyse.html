@@ -1,0 +1,72 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analyse</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/analyse.css') }}"
+  />
+</head>
+{% extends "base.html" %} {% block content %}
+<a href="javascript:history.back()">
+  <img
+    class="back-button"
+    src="{{ url_for('static', filename='images/back-button.png') }}"
+    alt="back-button"
+  />
+</a>
+<h1>Analyse</h1>
+<video id="video" width="320" height="240" autoplay playsinline></video>
+<br />
+<input type="file" id="image-upload" accept="image/*" style="margin-top: 1em" />
+<br />
+<input
+  type="text"
+  id="image-url"
+  placeholder="Paste image URL here"
+  style="margin-top: 1em; width: 320px"
+/>
+<br />
+<button id="pic-btn">Analyse Pic</button>
+<div id="loader" style="display: none; text-align: center; margin-top: 1em">
+  <span class="pixel-loader"></span>
+  <span style="font-family: inherit">Analysing...</span>
+</div>
+<div id="pic-result" style="margin-top: 1em"></div>
+<button id="start-chat-btn" style="display: none; margin: 1em auto">
+  Start Chat
+</button>
+<script src="{{ url_for('static', filename='js/analyse.js') }}"></script>
+<script>
+  // Start webcam
+  navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+    document.getElementById("video").srcObject = stream;
+  });
+</script>
+<div id="meal-modal" class="modal">
+  <div class="modal-content">
+    <h2>Meal Details</h2>
+    <label for="meal-desc-input">Describe your meal:</label>
+    <input
+      id="meal-desc-input"
+      type="text"
+      placeholder="e.g. Chicken salad with avocado and brown rice"
+    />
+    <label for="goal-input" style="margin-top: 1em">Your nutrition goal:</label>
+    <input
+      id="goal-input"
+      type="text"
+      placeholder="e.g. lose weight, build muscle, gluten-free diet"
+    />
+    <div class="modal-actions">
+      <button id="modal-cancel">Cancel</button>
+      <button id="modal-ok">Analyse</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

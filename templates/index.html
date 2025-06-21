@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %} {% if user %}
+<div class="welcome-msg">Welcome back, <b>{{ username or user }}</b>!</div>
+<a href="{{ url_for('analyse') }}">Analyse</a>
+<br />
+<a href="{{ url_for('analyse_chat') }}">Analyse Chat</a>
+<br />
+<a href="{{ url_for('auth.logout') }}" class="pixel-btn logout-btn"> Logout </a>
+{% else %}
+<div class="auth-buttons">
+  <a href="{{ url_for('auth.login') }}" class="pixel-btn">Login</a>
+  <a href="{{ url_for('auth.signup') }}" class="pixel-btn">Sign Up</a>
+</div>
+{% endif %} {% endblock %}
