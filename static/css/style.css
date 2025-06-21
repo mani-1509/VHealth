@@ -1,101 +1,95 @@
-:root {
-  --bg-100: #f0f4f8;
-  --bg-200: #ffffff;
-  --bg-300: #e0e4e8;
-  --text-100: #333333;
-  --text-200: #666666;
-  --primary-100: #007bff;
-  --primary-200: #0056b3;
-  --primary-300: #003d80;
-  --accent-100: #ffc107;
-  --accent-200: #ff9800;
-}
-
+/* Add to static/css/index.css or static/css/base.css */
 body {
+  background: linear-gradient(135deg, #1a103f, #4c1d95);
+  color: #f3e8ff;
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  font-family: "Inter", sans-serif;
-  background-color: var(--bg-100);
-  color: var(--text-100);
+  padding: 0;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding-top: 40px;
-}
-
-.back-link {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: var(--text-200);
+  flex-direction: column;
 }
 
 .form-container {
-  background: var(--bg-200);
-  padding: 32px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  width: 100%;
+  background: rgba(44, 22, 90, 0.97);
+  padding: 2.5em 2em 2em 2em;
+  border-radius: 18px;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 32px rgba(30, 41, 59, 0.18);
   max-width: 400px;
+  margin: 4em auto 0 auto;
+  text-align: center;
+  animation: popIn 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
-h2 {
-  margin-bottom: 24px;
-  font-weight: 600;
-  color: var(--primary-300);
-}
-
-form label {
+.form-container label {
   display: block;
   margin-bottom: 6px;
   margin-top: 16px;
-  font-size: 0.95rem;
-  color: var(--text-100);
+  font-size: 1em;
+  color: #e9d5ff;
+  text-align: left;
 }
 
-form input {
-  width: 100%;
+.form-container input {
+  width: 90%;
   padding: 10px 12px;
-  background-color: var(--bg-300);
-  border: 1px solid var(--accent-100);
+  background-color: #32178a;
+  border: 1px solid #a78bfa;
   border-radius: 8px;
   font-size: 1rem;
-  color: var(--text-100);
+  color: #f3e8ff;
+  margin-bottom: 8px;
 }
 
-form input::placeholder {
-  color: var(--text-200);
+.form-container input::placeholder {
+  color: #d8b4fe;
 }
 
-button[type="submit"] {
-  width: 100%;
-  margin-top: 24px;
-  padding: 12px;
-  background-color: var(--primary-100);
-  color: var(--text-100);
+.pixel-btn {
+  background: #4c1d95;
+  color: #f3e8ff;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 0.8em 2em;
+  border-radius: 7px;
+  font-size: 1.1em;
+  font-family: inherit;
   cursor: pointer;
-  transition: background 0.2s ease;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  margin-top: 1.2em;
+  margin-bottom: 0.2em;
+  width: 100%;
 }
 
-button[type="submit"]:hover {
-  background-color: var(--primary-200);
+.pixel-btn:hover {
+  background: #5b21b6;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  border-color: rgba(139, 92, 246, 0.6);
+  animation: glowPulse 1.5s infinite;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #a78bfa;
+  text-decoration: none;
+  font-size: 0.95rem;
 }
 
 .login-redirect {
   margin-top: 16px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-align: center;
-  color: var(--text-200);
+  color: #d8b4fe;
 }
 
 .login-redirect a {
-  color: var(--accent-100);
-  text-decoration: none;
+  color: #a78bfa;
+  text-decoration: underline;
 }
 
 .flash-messages {
@@ -105,16 +99,16 @@ button[type="submit"]:hover {
 }
 
 .flash-success {
-  background: var(--primary-300);
-  color: var(--accent-200);
+  background: #4c1d95;
+  color: #a7f3d0;
   padding: 10px;
   border-radius: 6px;
   margin-top: 8px;
 }
 
 .flash-error {
-  background: #ffcccc;
-  color: #660000;
+  background: #be185d;
+  color: #fff;
   padding: 10px;
   border-radius: 6px;
   margin-top: 8px;
@@ -123,11 +117,21 @@ button[type="submit"]:hover {
 .loader {
   width: 24px;
   height: 24px;
-  border: 3px solid var(--bg-300);
-  border-top-color: var(--primary-200);
+  border: 3px solid #a78bfa;
+  border-top-color: #4c1d95;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto 8px auto;
+  display: inline-block;
+}
+
+.loading {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes spin {

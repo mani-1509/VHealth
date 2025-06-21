@@ -3,36 +3,6 @@
   color: #e9d5ff;
   line-height: 1.6;
 }
-
-/* Brainrot Button and Text */
-.brainrot {
-  position: fixed;
-  bottom: 10rem;
-  right: 0;
-  text-align: center;
-  align-items: center;
-}
-
-.brainrot a {
-  color: #e9d5ff;
-  text-decoration: none;
-  font-size: 1.5rem;
-  padding: 5px 2px;
-  background: #4c1d95;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  transition: all 0.3s ease;
-}
-
-.brainrot a:hover {
-  background: #5b21b6;
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-}
-#brainrot-text {
-  font-size: 20px;
-  transition: all 0.3s ease;
-}
 .hidden {
   display: none;
 }
