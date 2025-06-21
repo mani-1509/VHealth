@@ -11,13 +11,8 @@
   />
 </head>
 {% extends "base.html" %} {% block content %}
-<a href="javascript:history.back()">
-  <img
-    class="back-button"
-    src="{{ url_for('static', filename='images/back-button.png') }}"
-    alt="back-button"
-  />
-</a>
+
+<a href="javascript:history.back()" class="back-link">← Back</a>
 
 <div class="chat-container">
   <h1>Chat</h1>

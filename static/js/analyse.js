@@ -75,7 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           loader.style.display = "none";
           analysisResult = data.reply || data.message || "No response.";
-          emotionResult.innerText = analysisResult;
+          let html = analysisResult.replace(/```html|```/g, "").trim();
+          emotionResult.innerHTML = html; // NOT innerText
           startChatBtn.style.display = "block";
         })
         .catch(() => {

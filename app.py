@@ -89,7 +89,9 @@ def analyse_pic():
                         '4. Fun Fact: Give one short nutrition tip or myth-busting fact.\n'
                         '5. Mood Insight (Optional): Based on the meal, what kind of mood or energy boost might this food give?\n\n'
                         'Make the tone Gen Z-friendly, slightly funny but still helpful.\n\n'
-                        'Example Goals: “lose weight”, “build muscle”, “gluten-free diet”, “high protein”, “clean eating”, “low sugar”, etc.'
+                        'Example Goals: “lose weight”, “build muscle”, “gluten-free diet”, “high protein”, “clean eating”, “low sugar”, etc.\n\n'
+                        'Respond in HTML format using <h1>, <h2>, <ul>, <li>, <p>, etc. Do NOT use Markdown.'
+                        
                     ).replace("{meal_description}", meal_description).replace("{user_goal}", user_goal)
                 },
                 {
